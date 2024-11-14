@@ -75,7 +75,16 @@ Create an app
 heroku create wheels-hub --remote heroku-frontend
 ```
 
+Create an app
+```shell
+heroku create wheels-hub-backend --remote heroku-backend
+```
+
 Push the sub directory, everytime a code change is required to be pushed
 ```shell
 git subtree push --prefix frontend heroku-frontend main
+```
+
+```shell
+git subtree push --prefix backend heroku-backend main
 ```
