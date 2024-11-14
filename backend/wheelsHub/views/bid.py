@@ -18,8 +18,8 @@ import stripe
 stripe.api_key = os.getenv("STRIPE_KEY")
 
 # Url for backend
-backend = "http://localhost:8000"
-frontend = "http://localhost:3000"
+backend = os.getenv("BACKEND_URL")
+frontend = os.getenv("FRONTEND_URL")
 
 # Create a bid
 @api_view(['POST'])
@@ -52,7 +52,7 @@ def create_bid(request, deal_id):
             line_items=[
                 {
                     # Provide the exact Price ID for placing a bid
-                    'price': 'price_1QK3TbITNyBNaHGFy9Ubp2Ou',
+                    'price': os.getenv("STRIPE_PLACE_BID"),
                     'quantity': 1,
                 }
             ],
@@ -83,7 +83,7 @@ def unlock_bid(request, bid_id):
             line_items=[
                 {
                     # Provide the exact Price ID for accepting a bid
-                    'price': 'price_1QKKdlITNyBNaHGFkjlRptHk',
+                    'price': os.getenv("STRIPE_ACCEPT_BID"),
                     'quantity': 1,
                 }
             ],

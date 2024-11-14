@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import ConfirmationSection from "../components/ViewListing/ConfirmationSection";
 import FormSection from "../components/ViewListing/FormSection";
 
+// Define the API endpoint URL
+const API_URL = process.env.REACT_APP_API_URL;
+
 const CreateListing = () => {
   const navigate = useNavigate();
   const [isAgreed, setIsAgreed] = useState(false);
@@ -212,7 +215,7 @@ const CreateListing = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/deals/", {
+      const response = await fetch(`${ API_URL }/deals/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

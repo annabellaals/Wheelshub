@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Modal, Box, Typography, Button, Input, Textarea } from "@mui/joy";
 import axios from "axios";
-import theme from "../../themes";
+
+// Define the API endpoint URL
+const API_URL = process.env.REACT_APP_API_URL;
 
 const PlaceBidModal = ({ open, handleClose, dealId }) => {
   const [amount, setAmount] = useState("");
@@ -20,7 +22,7 @@ const PlaceBidModal = ({ open, handleClose, dealId }) => {
     try {
       // Send a POST request to create the bid with the authorization header
       const response = await axios.post(
-        `http://localhost:8000/deals/${dealId}/bids/`,
+        `${ API_URL }/deals/${dealId}/bids/`,
         { amount, message, contact, deal: dealId },
         {
           headers: {
