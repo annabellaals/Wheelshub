@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
-from wheelshub import views
+from wheelsHub import views
 
 
 # Patch our app routes here
