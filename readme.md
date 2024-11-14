@@ -69,3 +69,13 @@ And protected routes will get
 ```shell
 curl -X GET http://localhost:8000/auth/user/ -H "Authorization: Bearer token"
 ```
+
+Create an app
+```shell
+heroku create wheels-hub --remote heroku-frontend
+```
+
+Push the sub directory, everytime a code change is required to be pushed
+```shell
+git subtree push --prefix frontend heroku-frontend main
+```
