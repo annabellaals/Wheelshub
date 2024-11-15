@@ -111,8 +111,38 @@ def user_bids(request):
     # Serialize data because it needs to converted from python object to json
     serializer = BidSerializer(bids, many=True)
 
+    # Initialize array to store enhanced bid data
+    data = []
+
+    # For each bid, fetch the associated deal details
+    for bid in bids:
+
+        try:
+
+            # Get the deal associated with this bid
+            deal = Deal.objects.get(id=bid.deal)
+            
+            # Add deal details to bid data
+            data.append({
+                
+                # Append existing bid data
+                **serializer.data[list(bids).index(bid)],
+
+                # Add deal data
+                'make': deal.make,
+                'model': deal.model, 
+                'price': deal.price,
+                'body_type': deal.body_type
+                
+            })
+
+        except Deal.DoesNotExist:
+
+            # Move on
+            continue
+
     # Return json response
-    return Response({ "success": True, "bids": serializer.data })
+    return Response({ "success": True, "bids": data })
 
 # Webhook to activate bid
 @api_view(['GET'])

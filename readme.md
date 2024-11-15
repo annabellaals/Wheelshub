@@ -548,7 +548,7 @@ Finally to get logs and monitor and manage our application over time, these some
 
 ### Framework & Package Descriptions:
 
-Backend:
+**Backend:**
 
 Django: Main web framework for building the backend
 
@@ -564,7 +564,7 @@ djangorestframework-simplejwt: JWT authentication
 
 drf-yasg: API documentation generator
 
-Frontend:
+**Frontend:**
 
 react: Core React library
 

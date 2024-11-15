@@ -1,7 +1,7 @@
-// The Bids component displays a list of all bids placed by the current user.
-// It shows bid details including the car listing, bid amount, and bid status.
-// Users can view and track all their placed bids in one centralized place.
-// The component provides an overview of the user's bidding activity on the platform.
+// The Deals component displays a list of all car listings posted by the current user.
+// It shows listing details including the car make/model, price, and specifications.
+// Users can view and manage their posted car listings in one centralized place.
+// The component provides an overview of the user's selling activity on the platform.
 
 // Libs
 import React, { useState, useEffect } from "react";
@@ -13,21 +13,21 @@ import { useNavigate } from "react-router-dom";
 // Define the API endpoint URL
 const API_URL = process.env.REACT_APP_API_URL;
 
-const Bids = () => {
+const Deals = () => {
 
   // For data
   const navigate = useNavigate();
 
-  var [bids, setBids] = useState(null);
+  var [deals, setDeals] = useState(null);
 
-  // Get bids on component mount
+  // Get deals on component mount
   useEffect(() => {
 
-    const fetchBids = async () => {
+    const fetchDeals = async () => {
 
       try {
 
-        const response = await fetch(`${ API_URL }/user/bids`, {
+        const response = await fetch(`${ API_URL }/user/deals`, {
 
           method: "GET",
           headers: {
@@ -49,21 +49,21 @@ const Bids = () => {
         // Get deals data
         const data = await response.json();
 
-        setBids(data.bids);
+        setDeals(data.deals);
 
       } catch (error) {
 
-        console.error("Error fetching bids:", error);
+        console.error("Error fetching deals:", error);
 
       }
     };
 
-    fetchBids();
+    fetchDeals();
 
   }, []);
 
   // Show loader
-  if (!bids) {
+  if (!deals) {
 
     return <Box sx={{ height: "80vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
 
@@ -75,15 +75,15 @@ const Bids = () => {
     </Box>
   }
 
-  if (bids.length === 0) {
+  if (deals.length === 0) {
 
     return <Card variant="outlined" sx={{ maxWidth: "500px", mx: "auto", p: 4, my: 10, textAlign: 'center' }}>
 
-      <Typography level="h4" sx={{ mb: 2 }}>You haven't placed any bids yet</Typography>
-      <Typography level="body-md" sx={{ mb: 3 }}>Get started by placing your first bid</Typography>
+      <Typography level="h4" sx={{ mb: 2 }}>You haven't created any deals yet</Typography>
+      <Typography level="body-md" sx={{ mb: 3 }}>Get started by creating your first listing</Typography>
 
-      <Button variant="solid" sx={{ bgcolor: theme.colors.primary }} onClick={() => navigate('/')}>
-        Browse Deals
+      <Button variant="solid" sx={{ bgcolor: theme.colors.primary }} onClick={() => navigate('/create')}>
+        Create Listing
       </Button>
 
     </Card>
@@ -96,12 +96,12 @@ const Bids = () => {
     <Stack direction="row" alignItems="flex-start">
 
       {/* Dynamic title based on user type */}
-      <Typography level="h5" sx={{ fontSize: "24px", fontWeight: "700", mb: 6, mr: 1 }}>Your Bids</Typography>
+      <Typography level="h5" sx={{ fontSize: "24px", fontWeight: "700", mb: 6, mr: 1 }}>Your Deals</Typography>
 
       {/* Count */}
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: theme.colors.primary, color: "white", borderRadius: "8px", px: 1.5, py: 1, fontSize: "14px", fontWeight: "700" }}>
         
-        { String(bids.length).padStart(2, "0") }
+        { String(deals.length).padStart(2, "0") }
         
       </Box>
 
@@ -113,25 +113,27 @@ const Bids = () => {
       {
         
         // Render
-        bids.map((bid) => <Card key={bid.id} variant="outlined" sx={{ p: 4, cursor: "pointer" }} onClick={() => navigate(`/view/${bid.deal}`)}>
+        deals.map((deal) => <Card key={deal.id} variant="outlined" sx={{ p: 4, cursor: "pointer" }} onClick={() => navigate(`/view/${deal.id}`)}>
 
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', width: '100%' }}>
 
               <Box>
 
-                <Typography level="h4" sx={{ mb: 0.5 }}> {bid.make} – {bid.model}</Typography>
+                <Typography level="h4" sx={{ mb: 0.5 }}> {deal.make} – {deal.model}</Typography>
 
-                <Typography level="body-sm" color="neutral" sx={{ textTransform: "capitalize" }}>{bid.body_type}</Typography>
+                <Typography level="body-sm" color="neutral" sx={{ textTransform: "capitalize" }}>{deal.body_type}</Typography>
+
+                <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
+
+                  <Typography level="body-sm">⛽️ {deal.engine_capacity}</Typography>
+
+                  <Typography level="body-sm">⚙️ {deal.transmission}</Typography>
+
+                </Stack>
 
               </Box>
 
-              <Stack spacing={1} sx={{ textAlign: 'right' }}>
-
-                <Typography level="h4">$ { Number(bid.amount).toLocaleString() }</Typography>
-
-                <Typography level="body-sm" color="neutral">Listed at $ { Number(bid.price).toLocaleString() }</Typography>
-
-              </Stack>
+              <Typography level="h4">$ { Number(deal.price).toLocaleString() }</Typography>
 
             </Box>
 
@@ -146,4 +148,4 @@ const Bids = () => {
   </Box>
 };
 
-export default Bids;
+export default Deals;

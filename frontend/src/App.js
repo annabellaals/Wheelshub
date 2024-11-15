@@ -19,6 +19,8 @@ import LoginPage from "./pages/LoginPage";
 import ViewListing from "./pages/ViewListing"; 
 import PlaceBid from "./pages/PlaceBid";
 import NotFound from "./pages/404";
+import Deals from "./pages/Deals";
+import Bids from "./pages/Bids";
 
 // Import PageWrapper to wrap main content on non-authentication pages
 import PageWrapper from "./components/PageWrapper"; 
@@ -71,6 +73,12 @@ const AppContent = () => {
 
               {/* Route for placing a bid on a specific listing */}
               <Route path="/bid/:id" element={<PlaceBid />} /> 
+
+              {/* Route for viewing all deals */}
+              <Route path="/deals" element={<Deals />} /> 
+
+              {/* Route for viewing all bids */}
+              <Route path="/bids" element={<Bids />} /> 
 
               {/* Not matched throw 404 */}
               <Route path="*" element={<NotFound />} />
