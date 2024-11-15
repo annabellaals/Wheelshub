@@ -89,6 +89,10 @@ This platform will include several distinct functionality areas to support user 
     Ensuring seamless transactions for lead generation fees and potential future functionality like payment processing for car sales.
     
 
+### Mockups
+
+I used Figma to create the mockups for this project. Here is the link to figma file: https://www.figma.com/design/kInDOvazNAyYKS5nwnAlcy/WheelsHub?node-id=0-1&t=P6yzeWO12BQDMHUs-1
+
 ### Project Planning
 
 | Sprint | Category | Task Description | Priority | Story Points | Dependencies |
