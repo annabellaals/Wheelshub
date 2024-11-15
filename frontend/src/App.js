@@ -18,6 +18,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ViewListing from "./pages/ViewListing"; 
 import PlaceBid from "./pages/PlaceBid";
+import NotFound from "./pages/404";
 
 // Import PageWrapper to wrap main content on non-authentication pages
 import PageWrapper from "./components/PageWrapper"; 
@@ -49,6 +50,9 @@ const AppContent = () => {
             {/* Route for login page */}
             <Route path="/login" element={<LoginPage />} /> 
 
+            {/* Not matched throw 404 */}
+            <Route path="*" element={<NotFound />} />
+
           </Routes>
         
         : 
@@ -67,6 +71,9 @@ const AppContent = () => {
 
               {/* Route for placing a bid on a specific listing */}
               <Route path="/bid/:id" element={<PlaceBid />} /> 
+
+              {/* Not matched throw 404 */}
+              <Route path="*" element={<NotFound />} />
 
             </Routes>
 
