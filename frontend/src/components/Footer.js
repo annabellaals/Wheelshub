@@ -14,10 +14,10 @@ import themes from "../themes";
 const Footer = () => {
   // Simulated data coming from the backend
   const aboutLinks = [
-    { label: "How it works", href: "#" },
-    { label: "Featured", href: "#" },
-    { label: "Partnership", href: "#" },
-    { label: "Business Relation", href: "#" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "My Bids", href: "/bids" },
+    { label: "My Deals", href: "/deals" }
   ];
 
   const communityLinks = [
@@ -28,10 +28,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { label: "Discord", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "Twitter", href: "#" },
     { label: "Facebook", href: "#" },
+    { label: "Instagram", href: "#" },
+    { label: "X", href: "#" }
   ];
 
   return (
@@ -70,6 +69,38 @@ const Footer = () => {
             Providing affordable car buying and selling services with secure and
             convenient transactions.
           </Typography>
+
+          <Box sx={{ display: 'flex', flexDirection: 'column', mt: 5 }}>
+
+            <Typography level="body2" color="text.secondary" sx={{ mb: 5 }}>
+              Accepted Payment Methods:
+            </Typography>
+
+            <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+              <img 
+                src="https://cdn.visa.com/v2/assets/images/logos/visa/blue/logo.png"
+                alt="Visa"
+                style={{ height: 15 }}
+              />
+              <img
+                src="/images/mastercard.svg"
+                alt="Mastercard" 
+                style={{ height: 30 }}
+              />
+            </Box>
+
+            <Box sx={{ display: 'flex', alignItems: 'center', mt: 5 }}>
+              <Typography level="body2" color="text.secondary" sx={{ mr: 1 }}>
+                Payments facilitated by
+              </Typography>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg"
+                alt="Stripe"
+                style={{ height: 20 }}
+              />
+            </Box>
+
+          </Box>
         </Box>
 
         {/* Right Section Container */}
@@ -126,10 +157,10 @@ const Footer = () => {
               fontWeight="bold"
               sx={{ mb: 1 }}
             >
-              About
+              Links
             </Typography>
 
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {aboutLinks.map((link, index) => (
                 <Link
                   key={index}
@@ -154,27 +185,6 @@ const Footer = () => {
           </AccordionSummary>
           <AccordionDetails>
             {aboutLinks.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href}
-                color="neutral"
-                underline="none"
-                sx={{ display: "block", mb: 2 }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </AccordionDetails>
-          <Divider />
-        </Accordion>
-
-        <Accordion sx={{ mt: 2 }}>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography sx={{ mb: 2 }}>Community</Typography>{" "}
-            {/* Added margin-bottom */}
-          </AccordionSummary>
-          <AccordionDetails>
-            {communityLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
@@ -248,12 +258,12 @@ const Footer = () => {
             gap: { xs: 0, md: 3 },
           }}
         >
-          <Link href="#" color="neutral" underline="none">
+          <Link href="/privacy" color="neutral" underline="none">
             <Typography level="body2" color="text.secondary">
               Privacy & Policy
             </Typography>
           </Link>
-          <Link href="#" color="neutral" underline="none">
+          <Link href="/terms" color="neutral" underline="none">
             <Typography level="body2" color="text.secondary">
               Terms & Condition
             </Typography>

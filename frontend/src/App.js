@@ -21,6 +21,10 @@ import PlaceBid from "./pages/PlaceBid";
 import NotFound from "./pages/404";
 import Deals from "./pages/Deals";
 import Bids from "./pages/Bids";
+import About from "./pages/about";
+import Contact from "./pages/contact";
+import Privacy from "./pages/privacy";
+import Terms from "./pages/terms";
 
 // Import PageWrapper to wrap main content on non-authentication pages
 import PageWrapper from "./components/PageWrapper"; 
@@ -64,6 +68,18 @@ const AppContent = () => {
 
               {/*  Route for home page */}
               <Route path="/" element={<Home />} /> 
+
+              {/* Route for about page */}
+              <Route path="/about" element={<About />} /> 
+
+              {/* Contact page */}
+              <Route path="/contact" element={<Contact />} /> 
+
+              {/* Route for privacy page */}
+              <Route path="/privacy" element={<Privacy />} /> 
+
+              {/* Terms page */}
+              <Route path="/terms" element={<Terms />} /> 
 
               {/*  Route for create listing page */}
               <Route path="/create" element={<CreateListing />} />

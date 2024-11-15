@@ -3,48 +3,38 @@ import { Box, Alert, CircularProgress, Typography } from "@mui/joy";
 import { useNavigate } from "react-router-dom";
 import ConfirmationSection from "../components/ViewListing/ConfirmationSection";
 import FormSection from "../components/ViewListing/FormSection";
-import { useParams } from "react-router-dom";
 
-// API configuration
-const API_URL = process.env.REACT_APP_API_URL;
-
-const PlaceBid = () => {
-
-  // State management
-  const navigate = useNavigate();
-
-  // Get ID from URL parameters
-  const { id: dealId } = useParams(); 
+const Contact = () => {
 
   const [isAgreed, setIsAgreed] = useState(false);
   const [loading, setLoading] = useState(false);
 
   // Store data about a bid
-  const [formData, setFormData] = useState({ amount: "", contact: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [submitStatus, setSubmitStatus] = useState({ show: false, type: "", message: "" });
 
   // Form field configurations
-  const bidFields = [
+  const contactFields = [
     {
-      name: "amount",
-      label: "Amount",
-      placeholder: "Enter your bid amount",
-      type: "text",
+      name: 'name',
+      label: 'Name',
+      type: 'text',
+      placeholder: 'Enter your name',
       sm: 12
     },
     {
-      name: "message",
-      label: "Message",
-      placeholder: "Enter your message for the seller",
-      type: "textarea",
+      name: 'email', 
+      label: 'Email',
+      type: 'email',
+      placeholder: 'Enter your email',
       sm: 12
     },
     {
-      name: "contact",
-      label: "Contact",
-      placeholder: "Enter your contact information",
-      type: "text",
+      name: 'message',
+      label: 'Message',
+      type: 'textarea',
+      placeholder: 'What would you like to tell us?',
       sm: 12
     }
   ];
@@ -69,8 +59,8 @@ const PlaceBid = () => {
     // Function will validate the form data
     const newErrors = {};
 
-    if (!formData.amount) newErrors.amount = "Amount is required";
-    if (!formData.contact) newErrors.contact = "Contact is required";
+    if (!formData.name) newErrors.name = "Name is required";
+    if (!formData.email) newErrors.email = "Email is required";
     if (!formData.message) newErrors.message = "Message is required";
 
     return newErrors;
@@ -101,13 +91,13 @@ const PlaceBid = () => {
 
     // Show loading spinner and submission message
     setLoading(true);
-    setSubmitStatus({ show: true, type: "success", message: "Submitting your bid..." });
+    setSubmitStatus({ show: true, type: "success", message: "Submitting your message..." });
 
     // Prepare data for submission
     const bidData = {
 
-      amount: formData.amount ? formData.amount.toLowerCase() : "",
-      contact: formData.contact ? formData.contact.toLowerCase() : "",
+      name: formData.name ? formData.name.toLowerCase() : "",
+      email: formData.email ? formData.email.toLowerCase() : "",
       message: formData.message ? formData.message.toLowerCase() : ""
 
     };
@@ -115,16 +105,15 @@ const PlaceBid = () => {
     // Send request to server
     try {
 
-      const response = await fetch(`${ API_URL }/deals/${dealId}/bids/`, {
+      const response = await fetch(`https://api.web3forms.com/submit`, {
 
         method: "POST",
 
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
 
-        body: JSON.stringify(bidData)
+        body: JSON.stringify({ name: formData.name, email: formData.email, message: formData.message, access_key: process.env.REACT_APP_EMAIL_KEY })
 
       });
 
@@ -134,10 +123,11 @@ const PlaceBid = () => {
       // Check if response is ok
       if (response.ok) {
 
-        setSubmitStatus({ show: true, type: "success", message: "Bid created successfully" });
+        setSubmitStatus({ show: true, type: "success", message: "Message sent successfully" });
 
-        // Open in same tab rather than new window
-        window.location.href = data.redirect_url;
+        // Reset form
+        setFormData({ name: "", email: "", message: "" })
+
       } 
       else {
 
@@ -189,19 +179,18 @@ const PlaceBid = () => {
 
     }
 
-    <Box sx={{ gap: 2, mb: 4 }}>
+    <Box sx={{ gap: 2, mb: 4, mt: 5 }}>
 
-      <Typography level="h2" sx={{ mb: 1 }}> Create Bid</Typography>
+      <Typography level="h2" sx={{ mb: 1 }}>Contact</Typography>
 
-      <Typography level="body2">Place a bid on the car you're interested in</Typography>
+      <Typography level="body2">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</Typography>
 
     </Box>
 
     <FormSection
-      title="Bid Details"
-      subtitle="Provide information about your bid"
-      fields={bidFields}
-      step="Step 1 of 2"
+      title="Details"
+      subtitle="Provide your details and we'll get back to you as soon as possible."
+      fields={contactFields}
       formData={formData}
       errors={errors}
       onInputChange={handleInputChange}
@@ -209,7 +198,7 @@ const PlaceBid = () => {
 
     <ConfirmationSection
       onSubmit={handleSubmit}
-      step="Step 2 of 2"
+      step=" "
       isAgreed={isAgreed}
       message="By placing a bid, you agree to the terms and conditions"
       setIsAgreed={setIsAgreed}
@@ -218,4 +207,4 @@ const PlaceBid = () => {
   </Box>
 };
 
-export default PlaceBid;
+export default Contact;
