@@ -89,6 +89,50 @@ This platform will include several distinct functionality areas to support user 
     Ensuring seamless transactions for lead generation fees and potential future functionality like payment processing for car sales.
     
 
+### Project Planning
+
+| Sprint | Category | Task Description | Priority | Story Points | Dependencies |
+| --- | --- | --- | --- | --- | --- |
+| Sprint 1: Project Setup|  |  |  |  |  |
+|  | Infrastructure | Set up Git repository and project structure | High | 2 | None |
+|  | Backend | Initialize Django project and configure settings | High | 3 | None |
+|  | Frontend | Set up React project with Create React App | High | 2 | None |
+|  | Database | Configure PostgreSQL with Neon | High | 3 | None |
+|  | DevOps | Set up initial Heroku deployment pipeline | Medium | 5 | Repository setup |
+| Sprint 2: Authentication|  |  |  |  |  |
+|  | Backend | Implement user model and JWT authentication | High | 5 | Django setup |
+|  | Backend | Create register/login API endpoints | High | 5 | User model |
+|  | Frontend | Design and implement login page | High | 3 | React setup |
+|  | Frontend | Design and implement registration page | High | 3 | React setup |
+|  | Testing | Write authentication unit tests | Medium | 3 | Auth implementation |
+| Sprint 3: Deal Management|  |  |  |  |  |
+|  | Backend | Create Deal model and migrations | High | 3 | Auth system |
+|  | Backend | Implement CRUD APIs for deals | High | 5 | Deal model |
+|  | Frontend | Create deal listing page | High | 5 | Deal APIs |
+|  | Frontend | Implement deal creation form | High | 5 | Deal APIs |
+|  | Frontend | Add deal search and filtering | Medium | 8 | Deal listing page |
+| Sprint 4: Bidding System  |  |  |  |  |
+|  | Backend | Create Bid model and migrations | High | 3 | Deal system |
+|  | Backend | Implement bid placement API | High | 5 | Bid model |
+|  | Backend | Set up Stripe integration for bid payments  | High | 8 | Bid API |
+|  | Frontend | Create bid placement interface     | High | 5 | Bid APIs |
+|  | Frontend | Implement bid listing and management               | High | 5 | Bid APIs |
+| Sprint 5: User Features|  |  |  |  |  |
+|  | Backend | Implement user profile management   | Medium | 5 | Auth system |
+|  | Frontend | Create user dashboard   | Medium | 8 | Profile APIs |
+|  | Frontend | Add user profile editing   | Medium | 5 | Profile APIs |
+|  | Backend | Implement user activity tracking  | Low | 5 | User system |
+| Sprint 6: Testing & Polish|  |  |  |  |  |
+|  | Testing | Comprehensive backend testing   | High | 8 | All backend features |
+|  | Testing | Frontend integration testing  |  |  | All frontend features |
+|  |  UI/UX  | Mobile responsiveness optimization  |  |  | Frontend components |
+|  | DevOps | Production deployment setup | High | 6 | All features   |
+| Sprint7: Documentation & Launch|  |  |  |  |  |
+|  | Docs | API documentation | Medium | 3 | All APIs |
+|  | Docs | User documentation | Medium | 3 | All features |
+|  | Testing | Final QA and bug fixes | High | 5 | All features |
+|  | DevOps | Production launch | High | 3 | All previous tasks |
+
 ### Technology Stack
 
 For our platform, the choice of stack for construction is a combination of scalability, flexibility, as well as user-friendliness because it assures reliability with high performance and less development time.
@@ -402,3 +446,130 @@ The bid acceptance system enables sellers to unlock buyer contact information th
 3. Stripe flow
     
     Seller is redirected to Stripe's checkout page and upon successful payment, Stripe triggers a webhook `webhook/bids/bidId/accept/` . This webhook validates the bid and the deal and changes the status of the bid placed to `accepted`. Afterwards the user is redirected to the view deal page on the frontend and buyer’s contact information becomes visible to the user.
+
+### Deployment Guideline
+
+This document outlines the steps to deploy your Django application, including database setup, Heroku deployment, Stripe integration, and ongoing maintenance. There are two core objectives, setup the database and deploy the site to Heroku for disribution.
+
+For database, we are using **Neon**. Neon offers a serverless PostgreSQL database that scales automatically, making it an ideal choice for modern applications. Here's how to set up and configure it with Django.
+
+1. Create a Neon Account: Sign up at [neon.tech](https://neon.tech/) and log in to access the dashboard.
+
+2. Create a New Project: From the dashboard, create a new project. Once completed, Neon will provide:
+
+    - A database connection string.
+    - The database name.
+    - User credentials (username and password)
+3. Retrieve Connection Details: Copy the connection string and credentials for later use in your Django application.
+
+4. Configure Django: Open your `settings.py` file and replace `<database_name>`, `<username>`, `<password>`, `<host>`, and `<port>` with the values provided by Neon.
+
+    
+    ```python
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': '<database_name>',
+            'USER': '<username>',
+            'PASSWORD': '<password>',
+            'HOST': '<host>',
+            'PORT': '<port>'
+        }
+    }
+    ```
+    
+5. Ensure that the required dependencies are included in your `requirements.txt` file:
+
+    
+    ```
+    psycopg2-binary
+    ```
+    
+6. Run migrations to apply the database schema:
+    
+    ```bash
+    python manage.py migrate
+    ```
+    
+
+Next step is deploying our app to **Heroku** for production access. Our project utilizes a monorepo structure with two separate applications (e.g., frontend and backend). Below is a step-by-step guide to deploy these apps using Heroku.
+
+1. Install and Log in to Heroku CLI: Ensure the Heroku CLI is installed.
+
+    
+    ```bash
+    heroku login
+    ```
+    
+2. Create Heroku Applications: For each application (frontend and backend), create a separate Heroku app:
+
+    
+    ```bash
+    heroku create wheels-hub --remote heroku-frontend
+    
+    heroku create wheels-hub-backend --remote heroku-backend
+    ```
+    
+3. Next to deploy the application, we will use git subtree feature to push the subfolders to heroku
+
+    
+    ```json
+    git subtree push --prefix frontend heroku-frontend main
+    
+    git subtree push --prefix backend heroku-backend main
+    ```
+    
+4. Also, to setup environment variable, this is the command, or we can also use the Heroku dashboard for this
+
+    
+    ```json
+    heroku config:set VAR_NAME=value --app <app-name>
+    ```
+    
+
+Finally to get logs and monitor and manage our application over time, these some of the important considerations
+
+1. Monitor Logs: Use the Heroku CLI to monitor logs:
+
+    
+    ```bash
+    heroku logs --tail --app <app-name>
+    ```
+    
+2. Track Database Performance: Regularly check Neon's dashboard for metrics such as query performance and active connections.
+
+3. Stripe Activity: Monitor payments and webhook events in the Stripe dashboard.
+
+4. Alerts and Metrics: Set up alerts for error rates, response times, and other key metrics on Heroku.
+
+### Framework & Package Descriptions:
+
+Backend:
+
+Django: Main web framework for building the backend
+
+djangorestframework: For building REST APIs
+
+django-cors-headers: Handles Cross-Origin Resource Sharing (CORS)
+
+python-dotenv & django-environ: Environment variable management
+
+psycopg2-binary: PostgreSQL database adapter
+
+djangorestframework-simplejwt: JWT authentication
+
+drf-yasg: API documentation generator
+
+Frontend:
+
+react: Core React library
+
+react-dom: React rendering for web
+
+@reduxjs/toolkit & react-redux: State management
+
+axios: HTTP client for API requests
+
+react-router-dom: Client-side routing
+
+These packages provide the essential functionality needed for a Django-React application while keeping dependencies minimal. Additional packages can be added based on specific project requirements.
