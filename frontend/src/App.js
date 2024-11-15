@@ -17,6 +17,7 @@ import CreateListing from "./pages/CreateListing";
 import SignupPage from "./pages/SignupPage"; 
 import LoginPage from "./pages/LoginPage";
 import ViewListing from "./pages/ViewListing"; 
+import PlaceBid from "./pages/PlaceBid";
 
 // Import PageWrapper to wrap main content on non-authentication pages
 import PageWrapper from "./components/PageWrapper"; 
@@ -63,6 +64,9 @@ const AppContent = () => {
 
               {/* Route for viewing a specific listing */}
               <Route path="/view/:id" element={<ViewListing />} /> 
+
+              {/* Route for placing a bid on a specific listing */}
+              <Route path="/bid/:id" element={<PlaceBid />} /> 
 
             </Routes>
 

@@ -68,9 +68,12 @@ const ViewListing = () => {
 
       return
     }
+    else {
 
-    setDealId(id);
-    setIsModalOpen(true);
+      navigate(`/bid/${dealId}`);
+
+      return
+    }
   
   }
 
@@ -466,9 +469,6 @@ const ViewListing = () => {
       }
       
     </Box>
-
-    {/* Modal for placing bid */}
-    <PlaceBidModal open={isModalOpen} handleClose={handleCloseModal} dealId={dealId} />
     
     {/* Accept bid */}
     <AcceptBidModal open={isAcceptModalOpen} handleClose={handleCloseModal} bidId={bidId} />

@@ -4,7 +4,7 @@ import { Stack, Checkbox, Typography, Button } from "@mui/joy";
 import { ReactComponent as Secure } from "../../assets/Secure.svg";
 import theme from "../../themes";
 
-const ConfirmationStep = ({ onSubmit, isAgreed, setIsAgreed }) => {
+const ConfirmationStep = ({ step, onSubmit, isAgreed, setIsAgreed, message }) => {
   return (
     <Stack
       spacing={3}
@@ -31,8 +31,7 @@ const ConfirmationStep = ({ onSubmit, isAgreed, setIsAgreed }) => {
           justifyContent="space-between"
         >
           <Typography level="body2">
-            We are getting to the end. Just a few clicks and your car is ready
-            to be sold!
+            { message || "We are getting to the end. Just a few clicks and your car is ready to be sold!" }
           </Typography>
           <Typography
             sx={{
@@ -40,7 +39,7 @@ const ConfirmationStep = ({ onSubmit, isAgreed, setIsAgreed }) => {
               fontSize: "14px",
             }}
           >
-            Step 4 of 4
+            { step || "Step 4 of 4" }
           </Typography>
         </Stack>
       </Stack>
