@@ -2,9 +2,10 @@
 // It provides details about the company's mission, values, and key features.
 
 // Libs
-import React, { useState } from "react";
+import React from "react";
 import { Box, Typography } from "@mui/joy";
 import theme from "../themes";
+import { Link } from "react-router-dom";
 
 const About = () => {
 
@@ -62,6 +63,28 @@ const About = () => {
         </Box>
       </Box>
       
+      <Box sx={{ mb: 8 }}>
+
+        <Typography level="body-md" sx={{ mb: 4 }}>
+          <strong>Business Address:</strong><br /><br />
+          WheelsHub Inc.<br />
+          123 Auto Plaza Drive<br />
+          Suite 200<br />
+          San Francisco, CA 94105<br />
+          United States
+        </Typography>
+
+        <Typography level="body-md" sx={{ mb: 4 }}>
+          <strong>Contact Details:</strong><br /><br />
+          Email: support@wheelshub.com<br />
+          Phone: (555) 123-4567<br />
+          Hours: Monday - Friday, 9:00 AM - 6:00 PM PST
+        </Typography>
+
+        <Typography level="body-md" sx={{ mb: 4 }}>
+          For customer support inquiries, please visit our <Link to="/contact"><strong>Contact</strong></Link> page or email us directly. We aim to respond to all inquiries within 24 business hours.
+        </Typography>
+      </Box>
     </Box>
   );
 };
