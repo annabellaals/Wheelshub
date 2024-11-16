@@ -4,7 +4,7 @@ import { Stack, Checkbox, Typography, Button } from "@mui/joy";
 import { ReactComponent as Secure } from "../../assets/Secure.svg";
 import theme from "../../themes";
 
-const ConfirmationStep = ({ step, onSubmit, isAgreed, setIsAgreed, message }) => {
+const ConfirmationStep = ({ button, step, onSubmit, isAgreed, setIsAgreed, message }) => {
   return (
     <Stack
       spacing={3}
@@ -77,7 +77,7 @@ const ConfirmationStep = ({ step, onSubmit, isAgreed, setIsAgreed, message }) =>
         }}
         onClick={onSubmit}
       >
-        Post Now
+        { button || "Post Now" }
       </Button>
 
       <Stack

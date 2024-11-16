@@ -3,8 +3,13 @@
 import React from "react";
 import { Card, Typography, Button, Box } from "@mui/joy";
 import themes from "../../themes";
+import { useNavigate } from "react-router-dom";
 
 const PromotionalCard = () => {
+
+
+  const navigate = useNavigate();
+
   return (
     <Card
       variant="soft"
@@ -40,6 +45,7 @@ const PromotionalCard = () => {
         </Typography>
 
         <Button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           variant="solid"
           sx={{
             width: "120px", // Width as per Figma design

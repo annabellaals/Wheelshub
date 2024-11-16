@@ -114,3 +114,22 @@ class SupportQuery(models.Model):
         db_table = 'support_queries'
         ordering = ['-created_at']
 
+
+
+class Newsletter(models.Model):
+    # Unique identifier for each subscription
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    # Subscriber email
+    email = models.EmailField(unique=True)
+    
+    # Subscription status
+    is_active = models.BooleanField(default=True)
+    
+    # Timestamp
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'newsletter'
+        ordering = ['-subscribed_at']
+

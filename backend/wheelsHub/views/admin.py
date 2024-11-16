@@ -5,8 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 # Models
-from ..models import SupportQuery
-from django.contrib.auth.models import User
+from ..models import SupportQuery, Newsletter
 
 # Create a new support query
 @api_view(['POST'])
@@ -63,3 +62,31 @@ def get_messages(request):
     except Exception as e:
         
         return Response({ "success": False, 'error': str(e) }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)    
+
+# Newsletter
+@api_view(['POST'])
+def subscribe_newsletter(request):
+
+    try:
+
+        # Get email from request
+        email = request.data.get('email')
+
+        # Validate email is provided
+        if not email: 
+            
+            return Response({ "success": False, "error": "Email is required" }, status=status.HTTP_400_BAD_REQUEST)
+
+        # Check if email already exists
+        if Newsletter.objects.filter(email=email).exists():
+            
+            return Response({ "success": False, "error": "Email already subscribed" }, status=status.HTTP_400_BAD_REQUEST)
+
+        # Create new subscription
+        subscription = Newsletter.objects.create(email=email)
+
+        return Response({ "success": True, "message": "Successfully subscribed to newsletter", "id": subscription.id }, status=status.HTTP_201_CREATED)
+
+    except Exception as e:
+        
+        return Response({ "success": False, "error": str(e) }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

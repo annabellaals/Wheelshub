@@ -80,7 +80,7 @@ const Header = () => {
           </Button>
         )}
 
-        <IconButton color="neutral" sx={{ fontSize: "1rem", borderRadius:"100px", border:"1px solid "+themes.colors.primary, padding: 0, marginLeft:"10px" }}>
+        <IconButton onClick={() => navigate("/deals")} color="neutral" sx={{ fontSize: "1rem", borderRadius:"100px", border:"1px solid "+themes.colors.primary, padding: 0, marginLeft:"10px" }}>
           {" "}
           {/* Set fontSize and padding here */}
           <Person sx={{ color: themes.colors.primary, fontSize: "20px" }} />

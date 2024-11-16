@@ -26,6 +26,7 @@ urlpatterns = [
     # Admin routes
     path('super/messages/', views.get_messages, name='get_messages'),
     path('super/messages/create/', views.create_message, name='create_message'),
+    path('super/newsletter/subscribe/', views.subscribe_newsletter, name='subscribe_newsletter'),
 
     # Accept and activate a bid (hidden routes for callback)
     path('webhook/bids/<uuid:bid_id>/accept/', views.accept_bid, name='accept_bid'),

@@ -17,7 +17,8 @@ const Footer = () => {
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
     { label: "My Bids", href: "/bids" },
-    { label: "My Deals", href: "/deals" }
+    { label: "My Deals", href: "/deals" },
+    { label: "Newsletter", href: "/newsletter" }
   ];
 
   const communityLinks = [

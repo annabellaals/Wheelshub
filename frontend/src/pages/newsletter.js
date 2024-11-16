@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import ConfirmationSection from "../components/ViewListing/ConfirmationSection";
 import FormSection from "../components/ViewListing/FormSection";
 
-
 const API_URL = process.env.REACT_APP_API_URL;
-const Contact = () => {
+
+const Newsletter = () => {
 
   const [isAgreed, setIsAgreed] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -17,26 +17,12 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState({ show: false, type: "", message: "" });
 
   // Form field configurations
-  const contactFields = [
-    {
-      name: 'name',
-      label: 'Name',
-      type: 'text',
-      placeholder: 'Enter your name',
-      sm: 12
-    },
+  const newsletterFields = [
     {
       name: 'email', 
       label: 'Email',
       type: 'email',
       placeholder: 'Enter your email',
-      sm: 12
-    },
-    {
-      name: 'message',
-      label: 'Message',
-      type: 'textarea',
-      placeholder: 'What would you like to tell us?',
       sm: 12
     }
   ];
@@ -61,9 +47,7 @@ const Contact = () => {
     // Function will validate the form data
     const newErrors = {};
 
-    if (!formData.name) newErrors.name = "Name is required";
     if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.message) newErrors.message = "Message is required";
 
     return newErrors;
   };
@@ -93,21 +77,12 @@ const Contact = () => {
 
     // Show loading spinner and submission message
     setLoading(true);
-    setSubmitStatus({ show: true, type: "success", message: "Submitting your message..." });
-
-    // Prepare data for submission
-    const bidData = {
-
-      name: formData.name ? formData.name.toLowerCase() : "",
-      email: formData.email ? formData.email.toLowerCase() : "",
-      message: formData.message ? formData.message.toLowerCase() : ""
-
-    };
+    setSubmitStatus({ show: true, type: "success", message: "Submitting your request..." });
 
     // Send request to server
     try {
 
-      const response = await fetch(`${ API_URL }/super/messages/create/`, {
+      const response = await fetch(`${ API_URL }/super/newsletter/subscribe/`, {
 
         method: "POST",
 
@@ -115,7 +90,7 @@ const Contact = () => {
           "Content-Type": "application/json",
         },
 
-        body: JSON.stringify({ name: formData.name, email: formData.email, message: formData.message })
+        body: JSON.stringify({ email: formData.email })
 
       });
 
@@ -125,7 +100,7 @@ const Contact = () => {
       // Check if response is ok
       if (response.ok) {
 
-        setSubmitStatus({ show: true, type: "success", message: "Message sent successfully" });
+        setSubmitStatus({ show: true, type: "success", message: "Subscribed successfully" });
 
         // Reset form
         setFormData({ name: "", email: "", message: "" })
@@ -133,7 +108,7 @@ const Contact = () => {
       } 
       else {
 
-        const errorMessage = data?.detail || "Failed to send message. Please try again.";
+        const errorMessage = data?.detail || "Failed to create subscription. Please try again.";
 
         setSubmitStatus({ show: true, type: "danger", message: errorMessage });
 
@@ -183,23 +158,23 @@ const Contact = () => {
 
     <Box sx={{ gap: 2, mb: 4, mt: 5 }}>
 
-      <Typography level="h2" sx={{ mb: 1 }}>Contact</Typography>
+      <Typography level="h2" sx={{ mb: 1 }}>Newsletter</Typography>
 
-      <Typography level="body2">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</Typography>
+      <Typography level="body2">Get the latest news and updates from WheelsHub.</Typography>
 
     </Box>
 
     <FormSection
       title="Details"
-      subtitle="Provide your details and we'll get back to you as soon as possible."
-      fields={contactFields}
+      subtitle="Provide your email to subscribe to our newsletter and get the latest news and updates."
+      fields={newsletterFields}
       formData={formData}
       errors={errors}
       onInputChange={handleInputChange}
     />
 
     <ConfirmationSection
-      button="Send Message"
+      button="Subscribe"
       onSubmit={handleSubmit}
       step=" "
       isAgreed={isAgreed}
@@ -210,4 +185,4 @@ const Contact = () => {
   </Box>
 };
 
-export default Contact;
+export default Newsletter;

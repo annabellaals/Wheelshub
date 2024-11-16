@@ -25,6 +25,7 @@ import About from "./pages/about";
 import Contact from "./pages/contact";
 import Privacy from "./pages/privacy";
 import Terms from "./pages/terms";
+import Newsletter from "./pages/newsletter";
 import Admin from "./pages/admin";
 
 // Import PageWrapper to wrap main content on non-authentication pages
@@ -75,6 +76,9 @@ const AppContent = () => {
 
               {/* Contact page */}
               <Route path="/contact" element={<Contact />} /> 
+
+              {/* Newsletter page */}
+              <Route path="/newsletter" element={<Newsletter />} /> 
 
               {/* Route for privacy page */}
               <Route path="/privacy" element={<Privacy />} /> 
