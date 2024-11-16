@@ -28,9 +28,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { label: "Facebook", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "X", href: "#" }
+    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61568960128214" },
+    { label: "Instagram", href: "https://www.instagram.com/wheelshubcardealer/?hl=en" },
+    { label: "X", href: "https://x.com/oblivity16965" }
   ];
 
   return (
