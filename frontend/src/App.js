@@ -25,6 +25,7 @@ import About from "./pages/about";
 import Contact from "./pages/contact";
 import Privacy from "./pages/privacy";
 import Terms from "./pages/terms";
+import Admin from "./pages/admin";
 
 // Import PageWrapper to wrap main content on non-authentication pages
 import PageWrapper from "./components/PageWrapper"; 
@@ -95,6 +96,9 @@ const AppContent = () => {
 
               {/* Route for viewing all bids */}
               <Route path="/bids" element={<Bids />} /> 
+
+              {/* Route for admin page */}
+              <Route path="/admin" element={<Admin />} /> 
 
               {/* Not matched throw 404 */}
               <Route path="*" element={<NotFound />} />

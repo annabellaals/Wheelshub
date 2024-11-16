@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import ConfirmationSection from "../components/ViewListing/ConfirmationSection";
 import FormSection from "../components/ViewListing/FormSection";
 
+
+const API_URL = process.env.REACT_APP_API_URL;
 const Contact = () => {
 
   const [isAgreed, setIsAgreed] = useState(false);
@@ -105,7 +107,7 @@ const Contact = () => {
     // Send request to server
     try {
 
-      const response = await fetch(`https://api.web3forms.com/submit`, {
+      const response = await fetch(`${ API_URL }/super/messages/create/`, {
 
         method: "POST",
 
@@ -113,7 +115,7 @@ const Contact = () => {
           "Content-Type": "application/json",
         },
 
-        body: JSON.stringify({ name: formData.name, email: formData.email, message: formData.message, access_key: process.env.REACT_APP_EMAIL_KEY })
+        body: JSON.stringify({ name: formData.name, email: formData.email, message: formData.message })
 
       });
 

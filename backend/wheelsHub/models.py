@@ -80,3 +80,37 @@ class Bid(models.Model):
 
     class Meta:
         db_table = 'bids'
+
+
+class SupportQuery(models.Model):
+    # Unique identifier for each support query
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    # User details
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    
+    # Query details
+    message = models.TextField()
+    
+    # Additional helpful fields
+    status = models.CharField(max_length=20, default='open', choices=[
+        ('open', 'Open'),
+        ('in_progress', 'In Progress'), 
+        ('resolved', 'Resolved'),
+        ('closed', 'Closed')
+    ])
+    priority = models.CharField(max_length=20, default='medium', choices=[
+        ('low', 'Low'),
+        ('medium', 'Medium'),
+        ('high', 'High'),
+        ('urgent', 'Urgent')
+    ])
+    
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'support_queries'
+        ordering = ['-created_at']
+
