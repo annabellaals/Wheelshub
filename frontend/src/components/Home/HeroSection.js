@@ -185,9 +185,9 @@ const HeroSection = ({ onFilterChange, onSearch }) => {
                   border: '1px solid rgba(195, 212, 233, 0.4)',
                   borderRadius: '12px', 
                   height: '44px',
-                  maxWidth: '180px',
+                  maxWidth: { xs: '100%', md: '180px' },
                   "--Input-focusedThickness": "0",
-                  outline: "none",
+                  outline: "none", 
                   boxShadow: "none",
                 }}
               />

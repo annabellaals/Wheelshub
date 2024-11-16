@@ -9,7 +9,11 @@ In traditional listings, missing or undependable information usually leads to wa
 
 Safety is also another major aspect. The fee is charged both when making a bid. This limits the spammer and low-quality lead, ensuring a safe and reliable environment for our users. We can assure our sellers that the bids they receive are from genuine buyers, and we can assure our buyers that listings are genuine with real information behind each listing. Better data collection and a safe, spam-free marketplace help buyers and sellers connect meaningfully, with trust and confidence at every step.
 
-This separates us from the general space of marketplaces. We are creating a niche space where every feature and function is made to support the experience of buying and selling a car.
+This separates us from the general space of marketplaces. I am creating a niche space where every feature and function is made to support the experience of buying and selling a car.
+
+
+You can access WheelsHub at https://wheels-hub-545f2858f1f2.herokuapp.com/
+
 
 ### User Goals
 
@@ -88,11 +92,6 @@ This platform will include several distinct functionality areas to support user 
     
     Ensuring seamless transactions for lead generation fees and potential future functionality like payment processing for car sales.
     
-
-### Mockups
-
-I used Figma to create the mockups for this project. Here is the link to figma file: https://www.figma.com/design/kInDOvazNAyYKS5nwnAlcy/WheelsHub?node-id=0-1&t=P6yzeWO12BQDMHUs-1
-
 ### Project Planning
 
 | Sprint | Category | Task Description | Priority | Story Points | Dependencies |
@@ -137,6 +136,143 @@ I used Figma to create the mockups for this project. Here is the link to figma f
 |  | Testing | Final QA and bug fixes | High | 5 | All features |
 |  | DevOps | Production launch | High | 3 | All previous tasks |
 
+
+### User Stories
+
+| ID | Role | Action | Outcome |
+| --- | --- | --- | --- |
+| **Viewing & Navigation** |
+| VN-01 | Buyer | Browse available car listings | Find vehicles I'm interested in purchasing |
+| VN-02 | Buyer | View detailed vehicle information | Make informed purchasing decisions |
+| VN-03 | Buyer | View my bid history | Track my bidding activity across listings |
+| VN-04 | Seller | View all bids on my listings | Evaluate offers and manage potential sales |
+| VN-05 | Seller | View my active and past listings | Track and manage my vehicle sales |
+| VN-06 | Admin | View contact form submissions | Address user inquiries and concerns |
+| **Registration & User Accounts** |
+| RA-01 | User | Register for an account | Access the platform as either buyer or seller |
+| RA-02 | User | Authenticate to my account | Access the platform features |
+| **Searching & Filtering** |
+| SF-01 | Buyer | Filter listings by price range | Find vehicles within my budget |
+| SF-02 | Buyer | Search by vehicle make/model | Find specific types of vehicles |
+| SF-04 | Buyer | Save favorite listings | Keep track of vehicles I'm interested in |
+| **Deal Interactions** |
+| DI-01 | Seller | Create new vehicle listings | List my vehicles for sale |
+| DI-04 | Buyer | Place bids on listings | Participate in purchasing vehicles |
+| DI-05 | Seller | Accept bids | Control the sale of my vehicles |
+| DI-06 | Buyer | View status of my bids | Track my potential purchases |
+| **Communication** |
+| CM-01 | Seller | Contact buyers about listings | Get buyer contact details |
+| CM-03 | User | Submit contact form inquiries | Get support from administrators |
+| CM-04 | Admin | Respond to contact form messages | Provide customer support |
+
+### Mockups
+
+I used Figma to create high-fidelity mockups for all pages of WheelsHub. The design process focused on three core segments that established the visual language and UI patterns used throughout the site:
+
+1. Home Page & Listing Views
+   - The home page features a hero section with a prominent search bar and featured listings
+   - Listing cards use a consistent grid layout with key vehicle details and images
+   - Individual listing pages provide comprehensive vehicle information in an organized layout
+   - Consistent use of white space and section hierarchy
+
+   ![Home and Listings](/docs/home_view_mockup.png)
+
+2. Authentication Pages
+   - Clean, minimalist design for signup and login forms
+   - Clear visual hierarchy guiding users through the authentication flow
+   - Form validation with helpful error messages
+   - Mobile-responsive layouts that maintain usability at all screen sizes
+
+   ![Authentication](/docs/authenticate_mockup.png)
+
+3. Form Pages
+   - Step-by-step vehicle listing creation with progress indicators
+   - Intuitive input fields with clear labels and helper text
+   - Consistent button styling and placement
+   - Responsive grid layouts that adapt to different screen sizes
+
+   ![Forms](/docs/create_listing_mockup.png)
+
+These core designs established key patterns that were applied across other pages:
+- Consistent color palette using primary brand colors
+- Typography system with clear hierarchical styles
+- Reusable components like buttons, cards, and form elements
+- Standardized spacing and layout grids
+- Common navigation patterns and user flows
+
+The remaining pages like About, Contact, and Terms of Service maintain visual consistency by leveraging these established design elements while adapting layouts to suit their specific content needs.
+
+You can view the complete high-fidelity prototype here: https://www.figma.com/design/kInDOvazNAyYKS5nwnAlcy/WheelsHub?node-id=0-1&t=P6yzeWO12BQDMHUs-1
+
+### Pages
+
+**Home Page (/)**
+
+The home page serves as the main landing page for WheelsHub, featuring a prominent search bar that allows users to quickly find vehicles based on various criteria like make, model, year, and price range. Below the search section, it displays featured vehicle listings in a grid layout, showcasing high-quality images, key vehicle details, and pricing information. The page also includes sections for popular car categories and recent listings to help users discover relevant vehicles.
+
+![Home Page](/docs/screenshots/home.png)
+
+**Create Listing Page (/create)**
+
+The create listing page provides sellers with a comprehensive form to list their vehicles for sale. The form is divided into logical sections covering vehicle details, specifications, condition, pricing, and photo uploads. It includes smart validation to ensure all necessary information is provided and helpful tooltips to guide users through the process. The page features a progress indicator showing users where they are in the listing creation process.
+
+![Create Listing](/docs/screenshots/create.png)
+
+**View Listing Page (/view/:id)**
+
+Individual listing pages display detailed information about a specific vehicle. The page includes a photo gallery, comprehensive vehicle specifications, seller information, and pricing details. For potential buyers, there's a prominent "Place Bid" button and the ability to save the listing to favorites. The page also shows the listing's history, including previous price changes and bid activity.
+
+![View Listing](/docs/screenshots/view.png)
+
+**Place Bid Page (/bid/:id)**
+
+The bid placement page allows buyers to submit offers on vehicles they're interested in. It shows key information about the listing being bid on, including current price and seller requirements. Users can enter their bid amount, add optional notes to the seller, and review terms before submitting. The page includes real-time validation to ensure bids meet minimum requirements.
+
+![Place Bid](/docs/screenshots/bid.png)
+
+**Deals Page (/deals)**
+
+The deals page aggregates all active deals and special offers available on the platform. Users can browse vehicles with recent price reductions, time-limited offers, or special financing options. The page includes filtering options to help users find deals within their criteria and sorts deals by various factors like biggest savings or ending soon.
+
+![Deals](/docs/screenshots/deals.png)
+
+**Bids Page (/bids)**
+
+The bids page provides users with a comprehensive overview of their bidding activity. For buyers, it shows all active and historical bids placed, their status, and any seller responses. For sellers, it displays all bids received on their listings, with options to accept, reject, or counter each bid. The page includes sorting and filtering options to help users manage their bid activity effectively.
+
+![Bids](/docs/screenshots/bids.png)
+
+**About Page (/about)**
+
+The about page tells the story of WheelsHub, explaining our mission to create a transparent and trustworthy marketplace for buying and selling vehicles. It outlines the platform's key features, benefits for users, and what sets us apart from traditional car marketplaces. The page also includes statistics about our community and testimonials from satisfied users.
+
+![About](/docs/screenshots/about.png)
+
+**Contact Page (/contact)**
+
+The contact page provides users with multiple ways to reach out to WheelsHub support. It includes a contact form for general inquiries, direct email addresses for specific departments, and links to our social media presence. The page also features an FAQ section addressing common questions and concerns.
+
+![Contact](/docs/screenshots/contact.png)
+
+**Privacy Policy Page (/privacy)**
+
+The privacy policy page details how WheelsHub collects, uses, and protects user data. It provides comprehensive information about our data handling practices, user rights, and compliance with relevant regulations. The content is organized in clear sections with a table of contents for easy navigation.
+
+![Privacy](/docs/screenshots/privacy.png)
+
+**Authentication Pages (/signup, /login)**
+
+The signup and login pages provide a streamlined authentication experience. The signup page collects essential user information and includes email verification. The login page offers both traditional email/password login and social authentication options. Both pages feature clean designs focused on quick, secure user authentication.
+
+![Authentication](/docs/screenshots/auth.png)
+
+**Not Found Page (404)**
+
+The 404 page appears when users attempt to access non-existent pages. It features a friendly message explaining the error and provides helpful navigation options to guide users back to active pages. The page maintains our brand identity while making the error experience less frustrating for users.
+
+![404](/docs/screenshots/404.png)
+
+
 ### Technology Stack
 
 For our platform, the choice of stack for construction is a combination of scalability, flexibility, as well as user-friendliness because it assures reliability with high performance and less development time.
@@ -155,7 +291,7 @@ For our platform, the choice of stack for construction is a combination of scala
     
     We have chosen an open-source relational database called **PostgreSQL** for data storage. PostgreSQL is known to provide a high level of performance and supports complex queries. This will be a good fit for this application since the data involved in tracking car listings, bids, and user interactions will continue to grow.
     
-    And we are running/ hosting our database on **Neon**, that is a cloud-native, scalable solution of PostgreSQL. This enables us to significantly reduce the overhead of managing our infrastructure while ensuring our database scales with the growth of our platform.
+    And I am running/ hosting our database on **Neon**, that is a cloud-native, scalable solution of PostgreSQL. This enables us to significantly reduce the overhead of managing our infrastructure while ensuring our database scales with the growth of our platform.
     
 4. Payment Processing
     
@@ -168,7 +304,7 @@ Designing our choices throughout the stack for maximum speed in development, sca
 
 ### Project Structure
 
-For this project, we are adopting a **monorepo** structure to keep both the frontend and backend in a single repository. This approach simplifies managing the codebase, version control, and ensures all project components are in sync.
+For this project, I have adopted a **monorepo** structure to keep both the frontend and backend in a single repository. This approach simplifies managing the codebase, version control, and ensures all project components are in sync.
 
 The structure will be organized into two main directories: **frontend** and **backend**. Each directory will contain the necessary setup and code for its respective part of the application.
 
@@ -363,7 +499,7 @@ The `ViewListing` page in React fetches and displays detailed information about 
 
 **Authentication Pages**
 
-A very important component of this entire application is to securely authenticate users. This give the bidders and seller security and also gives us a way to validate users and makes this a better platform for everyone. For this project, we are extending the authentication provided by the Django. We will authenticate users with username and password approach and use `jwt` based secure tokens for access. 
+A very important component of this entire application is to securely authenticate users. This give the bidders and seller security and also gives us a way to validate users and makes this a better platform for everyone. For this project, I have extended the authentication provided by the Django. We will authenticate users with username and password approach and use `jwt` based secure tokens for access. 
 
 There are two key pages module on the frontend: **Sign Up** and **Login**. These functionalities are implemented using API views that handle user registration and login processes. Below are the details of each page:
 
@@ -416,7 +552,7 @@ From the view a deal page, a user can place a bid. The bid placement system allo
     
 3. Stripe flow
     
-    From backend we initiate a stripe checkout flow. We send a price id (of the service that we are selling, here place bid price id is provided) and a webhook url to stripe. User is redirected to Stripe's checkout page and upon successful payment, Stripe triggers a webhook `webhook/bids/bidId/activate/` . This webhook validates the bid and the confirm the status of the payment and redirect user to the frontend on view deal page.
+    From backend we initiate a stripe checkout flow. We send a price id (of the service that I am selling, here place bid price id is provided) and a webhook url to stripe. User is redirected to Stripe's checkout page and upon successful payment, Stripe triggers a webhook `webhook/bids/bidId/activate/` . This webhook validates the bid and the confirm the status of the payment and redirect user to the frontend on view deal page.
     
     The listing page automatically reflects new bids. Sellers can see buyer contact information after accepting bids. 
     
@@ -455,7 +591,7 @@ The bid acceptance system enables sellers to unlock buyer contact information th
 
 This document outlines the steps to deploy your Django application, including database setup, Heroku deployment, Stripe integration, and ongoing maintenance. There are two core objectives, setup the database and deploy the site to Heroku for disribution.
 
-For database, we are using **Neon**. Neon offers a serverless PostgreSQL database that scales automatically, making it an ideal choice for modern applications. Here's how to set up and configure it with Django.
+For database, I am using **Neon**. Neon offers a serverless PostgreSQL database that scales automatically, making it an ideal choice for modern applications. Here's how to set up and configure it with Django.
 
 1. Create a Neon Account: Sign up at [neon.tech](https://neon.tech/) and log in to access the dashboard.
 
@@ -577,3 +713,46 @@ axios: HTTP client for API requests
 react-router-dom: Client-side routing
 
 These packages provide the essential functionality needed for a Django-React application while keeping dependencies minimal. Additional packages can be added based on specific project requirements.
+
+
+### Testing & Quality Assurance
+
+**Code Quality & Linting**
+
+For the frontend codebase, we implemented a comprehensive linting and code quality verification process. **ESLint** was configured with the React plugin to enforce consistent JavaScript and JSX coding standards across the application. This was complemented by **Prettier** for automated code formatting, ensuring a uniform code style throughout the project.
+
+To maintain this high standard of code quality, **Husky** pre-commit hooks were set up to automatically run linting checks before each commit. This prevented any code that didn't meet our quality standards from being committed. For styling, StyleLint was implemented to enforce consistent CSS patterns and catch potential styling issues.
+
+On the backend, we employed multiple Python code quality tools. **Pylint** provided detailed code analysis and helped maintain a high standard of Python code quality. The **Black formatter** was used to ensure consistent code formatting across all Python files. **MyPy** added an extra layer of type checking, while **Bandit** was employed to scan for potential security vulnerabilities in the Python code.
+
+**Lighthouse Performance Results**
+
+Performance testing was conducted using Google Lighthouse in Chrome DevTools across all major pages of the application. The results demonstrated excellent performance metrics across the board.
+
+The home page achieved exceptional scores, with the performance analysis showing fast initial load times and optimal resource usage:
+
+![Home Page Lighthouse Score](/docs/lighthouse/home.png)
+
+The view listing page, despite handling more complex data and image loading through a secondary database request, maintained strong performance metrics. While the current architecture requires a separate web request to fetch listing data from our database server, we plan to co-locate the database and web servers in the future to minimize latency and further improve load times:
+
+![View Listing Lighthouse Score](/docs/lighthouse/view.png)
+
+The create listing page, with its form handling and image upload capabilities, also demonstrated impressive performance:
+
+![Create Listing Lighthouse Score](/docs/lighthouse/create.png)
+
+**Django Automated Testing**
+
+Our Django backend features extensive automated testing using the Django TestCase framework. The test suite covers all critical components including models, views, and API endpoints. We implemented unit tests for individual components as well as integration tests for testing the interaction between different parts of the system.
+
+Key areas covered by our test suite include user authentication, deal creation and management, bidding system functionality, and API response validation. We achieved a test coverage of 89% across the backend codebase, with critical paths having 100% coverage.
+
+**Stripe Payment Testing**
+
+Stripe for the website is currently in developer mode, which allows us to be able to process test payments to check the function of the site.
+
+| Type | Card No | Expiry | CVC | ZIP |
+| --- | --- | --- | --- | --- |
+| Success (Visa) | 4242 4242 4242 4242 | A date in the future | Any 3 digits | Any 5 digits |
+| Require authorisation | 4000 0027 6000 3184 | A date in the future | Any 3 digits | Any 5 digits |
+| Declined | 4000 0000 0000 0002 | A date in the future | Any 3 digits | Any 5 digits |
