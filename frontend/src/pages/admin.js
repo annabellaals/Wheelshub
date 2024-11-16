@@ -45,6 +45,15 @@ const Admin = () => {
 
         }
 
+        if (response.status === 401) {
+          
+          // Render error
+          navigate("/login");
+
+          return;
+
+        }
+
         // Get deals data
         const data = await response.json();
 
