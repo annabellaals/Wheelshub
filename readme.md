@@ -756,3 +756,15 @@ Stripe for the website is currently in developer mode, which allows us to be abl
 | Success (Visa) | 4242 4242 4242 4242 | A date in the future | Any 3 digits | Any 5 digits |
 | Require authorisation | 4000 0027 6000 3184 | A date in the future | Any 3 digits | Any 5 digits |
 | Declined | 4000 0000 0000 0002 | A date in the future | Any 3 digits | Any 5 digits |
+
+
+**Django Admin Access**
+
+Our admin interface is accessible at `/admin` for administrative management. 
+
+Admin credentials for testing:
+| Username | Password |
+| --- | --- |
+| testuser | testpass |
+
+The admin interface provides functioanlity to manage user support queries. And we will expand this in the future to manage more aspects of the application.
