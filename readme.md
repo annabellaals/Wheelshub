@@ -12,7 +12,7 @@ Safety is also another major aspect. The fee is charged both when making a bid. 
 This separates us from the general space of marketplaces. I am creating a niche space where every feature and function is made to support the experience of buying and selling a car.
 
 
-You can access WheelsHub at https://wheels-hub-545f2858f1f2.herokuapp.com/
+You can access WheelsHub at https://wheelshub.ddns.net/
 
 
 ### User Goals
