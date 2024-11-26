@@ -35,7 +35,14 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'wheelsHub',
+    'django.contrib.sitemaps'
 ]
+JSL_DJANGO_SITEMAP_SETTINGS = {
+	"ENABLE": True,
+	"FETCH_URL_FROM": "pattern",
+	"INCLUDE_APPS": ("ALL",),
+	"IGNORE_URL_PATTERNS": (".*/api/v1.*", )
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
