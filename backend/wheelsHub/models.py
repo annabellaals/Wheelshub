@@ -54,6 +54,9 @@ class Deal(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         db_table = 'deals'
 
@@ -77,6 +80,9 @@ class Bid(models.Model):
     ])
 
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.status
 
     class Meta:
         db_table = 'bids'
@@ -110,6 +116,9 @@ class SupportQuery(models.Model):
     # Timestamps
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         db_table = 'support_queries'
         ordering = ['-created_at']
@@ -128,6 +137,10 @@ class Newsletter(models.Model):
     
     # Timestamp
     subscribed_at = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return self.email
 
     class Meta:
         db_table = 'newsletter'
