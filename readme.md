@@ -926,6 +926,7 @@ I would like to acknowledge the following people who have contributed to the com
 * Credits to Harvard´s Online courses
 * Credits to W3schools
 * Credits to Udemy
-* Credits to code Institute students, helped me on-hand
+* Credits to Code Institute students, helped me on-hand
+* Credits to Code Institute mentor Graham
 
 ---
