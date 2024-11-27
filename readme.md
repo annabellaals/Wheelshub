@@ -3,7 +3,7 @@
 ![Home Page](/docs/screenshots/amiresponsive.png)
 
 
-Wheelhub would be an online marketplace, focus solely on buying and selling of cars, usability, secure transactions, effective communications, and no classified ads. It addresses the two specific pain points of the online car marketplaces as follows:
+Wheelshub would be an online marketplace, focus solely on buying and selling of cars, usability, secure transactions, effective communications, and no classified ads. It addresses the two specific pain points of the online car marketplaces as follows:
 
 1. Quality data aggregation
 2. A safe, authentic community of users
