@@ -16,9 +16,9 @@ This separates us from the general space of marketplaces. I am creating a niche 
 
 [Visit WheelsHub Here](https://wheelshub.ddns.net/)
 
-[Visit WheelsHub Repository](https://img.shields.io/github/last-commit/annabellaals/)
+[Visit WheelsHub Repository](https://github.com/annabellaals/Wheelshub/)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/annabellaals/Wheelshub) ![GitHub language count](https://img.shields.io/github/languages/count/annabellaals/Wheelshub) ![GitHub top language](https://img.shields.io/github/languages/top/annabellaals/Wheelshub)
+![GitHub last commit](https://img.shields.io/github/last-commit/annabellaals/Wheelshub/) ![GitHub language count](https://img.shields.io/github/languages/count/annabellaals/Wheelshub/) ![GitHub top language](https://img.shields.io/github/languages/top/annabellaals/Wheelshub/)
 
 
 ## User Experience
