@@ -1,6 +1,6 @@
 # WheelsHub
 
-![Home Page](/docs/screenshots/view.png)
+![Home Page](/docs/screenshots/amiresponsive.png)
 
 
 Wheelhub would be an online marketplace, focus solely on buying and selling of cars, usability, secure transactions, effective communications, and no classified ads. It addresses the two specific pain points of the online car marketplaces as follows:
@@ -13,7 +13,10 @@ In traditional listings, missing or undependable information usually leads to wa
 This separates us from the general space of marketplaces. I am creating a niche space where every feature and function is made to support the experience of buying and selling a car.
 
 ---
+
 [Visit WheelsHub Here](https://wheelshub.ddns.net/)
+
+[Visit WheelsHub Repository](https://img.shields.io/github/last-commit/annabellaals/)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/annabellaals/Wheelshub) ![GitHub language count](https://img.shields.io/github/languages/count/annabellaals/Wheelshub) ![GitHub top language](https://img.shields.io/github/languages/top/annabellaals/Wheelshub)
 
@@ -196,6 +199,43 @@ Infrastructure | Set up Git repository and project structure | High | 2 | None |
 | CM-01 | Seller | Contact buyers about listings | Get buyer contact details |
 | CM-03 | User | Submit contact form inquiries | Get support from administrators |
 | CM-04 | Admin | Respond to contact form messages | Provide customer support |
+
+
+## Skeleton Plane
+
+### **Wireframes**
+
+Wireframes for the WheelsHub project were created using [wireframe](https://wireframe.cc/).
+
+
+* **Base Template** - This template contains the header and footer, which are used throughout the website. The base template is used as a foundation, with specific page content injected into the main section using React language.
+
+![Base Template Wireframe](docs/wireframes/wf1.png)
+
+--- 
+
+#### * **Deal details Page**
+
+  ![Deal Details Wireframe](docs/wireframes/wf1.png) ![Deal Details Wireframe](docs/wireframes/wf2.png)
+
+#### * **Login Page** - The homepage features a header banner, Login. It provides the view to login
+
+  ![Login Page Wireframe](docs/wireframes/wf3.png)
+
+---
+
+#### * **Register Page**
+
+  ![Register Page Wireframe](docs/wireframes/wf4.png)
+
+
+---
+
+#### * **Deals list Page** 
+
+  ![Deals list Wireframe](docs/wireframes/wf5.png)
+
+
 
 ## Mockups
 
@@ -626,6 +666,56 @@ The bid acceptance system enables sellers to unlock buyer contact information th
     
     Seller is redirected to Stripe's checkout page and upon successful payment, Stripe triggers a webhook `webhook/bids/bidId/accept/` . This webhook validates the bid and the deal and changes the status of the bid placed to `accepted`. Afterwards the user is redirected to the view deal page on the frontend and buyer’s contact information becomes visible to the user.
 
+## Local Development
+
+### **How to Fork**
+
+To fork the repository:
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [Wheelshub](https://github.com/annabellaals/Wheelshub).
+3. Click on the fork button in the top right of the page.
+
+### **How to Clone**
+
+To clone the repository:
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [Wheelshub](https://github.com/annabellaals/Wheelshub).
+3. Click the Code button, select whether you would like to clone with HTTPS, SSH, or the GitHub CLI, and copy the link provided.
+4. Open the terminal in chosen IDE and change the current working directory to the location you would like to use for the cloned repository.
+5. Type the following command into the terminal: `git clone` followed by the link you copied in step 3.
+6. Set up a virtual environment (this step is not required if you are using an integrated development environment like GitPod which sets it up for you).
+7. Install the packages from the `requirements.txt` file by running the following command in the terminal:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### **Database Setup**
+
+1. Ensure PostgreSQL is installed and running on local machine.
+2. Create a PostgreSQL database for the project.
+3. Update the `DATABASES` setting in the `settings.py` file with database credentials.
+4. Run migrations to set up the database schema:
+
+    ```bash
+    python manage.py migrate
+    ```
+
+5. Create a superuser to access the Django admin:
+
+    ```bash
+    python manage.py createsuperuser
+    ```
+
+---
+
+## Testing
+
+Please refer to the [TESTING.md](TESTING.md) file for all testing performed.
+
+
 ## Deployment Guideline
 
 This document outlines the steps to deploy your Django application, including database setup, Heroku deployment, Stripe integration, and ongoing maintenance. There are two core objectives, setup the database and deploy the site to Heroku for disribution.
@@ -808,4 +898,34 @@ Admin credentials for testing:
 | --- | --- |
 | testuser | testpass |
 
-The admin interface provides functioanlity to manage user support queries. And we will expand this in the future to manage more aspects of the application.
+The admin interface provides functionality to manage user support queries. And we will expand this in the future to manage more aspects of the application.
+
+---
+
+## Credits
+
+### Code Used
+
+This project leverages various techniques and code snippets from Django's documentation and online resources. Special thanks to [Django Documentation](https://docs.djangoproject.com/en/stable/) for its invaluable guidance.
+
+### Content
+
+Content for the site was created by me, with specific descriptions and menu items crafted to reflect the unique offerings of WheelsHub.
+
+### Media
+
+* [Cars feed](https://www.carsfeed.com/) - For providing high-quality images of cars used in the website.
+* [Canva](https://www.canva.com/) - Created the logo and other graphical elements for WheelsHub using Canva's design tools.
+
+### Acknowledgments
+
+I would like to acknowledge the following people who have contributed to the completion of this project:
+
+* My support system at home for being patience and the hands-on constant advice
+* Credits to Code Institute, and slack community
+* Credits to Harvard´s Online courses
+* Credits to W3schools
+* Credits to Udemy
+* Credits to code Institute students, helped me on-hand
+
+---
