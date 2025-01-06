@@ -46,7 +46,7 @@ def login_user(request):
         # Get a token for user, this will create a new session
         access = AccessToken.for_user(user)
 
-        return Response({ "success": True, "access": str(access) })
+        return Response({ "success": True, "access": str(access), "is_staff": user.is_staff})
 
     # Return 401   
     return Response({ "success": False }, status=401)

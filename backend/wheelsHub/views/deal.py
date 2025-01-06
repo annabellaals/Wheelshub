@@ -1,4 +1,5 @@
 # Libs
+from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -183,3 +184,49 @@ def user_deals(request):
 
     # Return json response
     return Response({ "success": True, "deals": serializer.data })
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def delete_user_deal(request, deal_id):
+    try:
+        deal = Deal.objects.get(id=deal_id, seller= request.user.id)
+        deal.delete()
+
+        return Response({
+            "success": True,
+            "message": "Deal deleted successfully."
+        }, status=status.HTTP_204_NO_CONTENT)
+
+    except Deal.DoesNotExist:
+        return Response({
+            "success": False,
+            "message": "Deal not found."
+        }, status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_user_deal(request, deal_id):
+    try:
+        deal = Deal.objects.get(id=deal_id,seller= request.user.id)
+        serializer = DealSerializer(deal, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({
+                "success": True,
+                "message": "Deal updated successfully.",
+                "deal": serializer.data
+            }, status=status.HTTP_200_OK)
+
+        return Response({
+            "success": False,
+            "message": "Invalid data.",
+            "errors": serializer.errors
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    except Deal.DoesNotExist:
+        return Response({
+            "success": False,
+            "message": "Deal not found."
+        }, status=status.HTTP_404_NOT_FOUND)

@@ -27,6 +27,9 @@ urlpatterns = [
     path('user/bids/', views.user_bids, name='get_user_bids'),
     path('user/deals/', views.user_deals, name='get_user_deals'),
 
+    path('user/deals/delete/<uuid:deal_id>/', views.delete_user_deal, name='delete_user_deal'),
+    path('user/deals/update/<uuid:deal_id>/', views.update_user_deal, name='update_user_deal'),
+
     # Admin routes
     path('super/messages/', views.get_messages, name='get_messages'),
     path('super/messages/create/', views.create_message, name='create_message'),
