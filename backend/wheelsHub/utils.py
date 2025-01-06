@@ -17,7 +17,7 @@ def send_purchase_confirmation(user_email, customer_name, order_number, total_am
     plain_message = strip_tags(html_message)
 
     email = EmailMessage(
-        subject='Your Purchase Confirmation',
+        subject='Your Purchase Confirmation - Wheelshub',
         body=plain_message,
         from_email=settings.DEFAULT_FROM_EMAIL,
         to=[user_email]
