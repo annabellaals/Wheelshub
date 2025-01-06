@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from wheelsHub.models import Deal, Bid, SupportQuery, Newsletter
+
+admin.site.register(Deal)
+admin.site.register(Bid)
+admin.site.register(SupportQuery)
+admin.site.register(Newsletter)
