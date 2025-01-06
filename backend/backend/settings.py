@@ -169,3 +169,12 @@ CORS_ALLOW_METHODS = [
     'DELETE',
     'OPTIONS',  # Make sure OPTIONS is allowed
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # SMTP server for Gmail
+EMAIL_PORT = 587  # Use 587 for TLS, or 465 for SSL
+EMAIL_USE_TLS = True  # Use TLS (for Gmail)
+EMAIL_USE_SSL = False  # Set to True if using SSL
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

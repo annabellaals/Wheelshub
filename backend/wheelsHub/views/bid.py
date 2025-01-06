@@ -1,4 +1,3 @@
-# Libs
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -13,6 +12,8 @@ from ..serializers import BidSerializer
 
 # For payment
 import stripe
+
+from ..utils import send_purchase_confirmation
 
 # Stripe secret API key.
 stripe.api_key = os.getenv("STRIPE_KEY")
@@ -61,13 +62,24 @@ def create_bid(request, deal_id):
             cancel_url = frontend,
         )
 
+        send_purchase_confirmation(
+            user_email=contact,
+            customer_name=request.user.username,
+            order_number=str(deal.id),
+            total_amount=amount
+        )
+
         # Return bid id
         return Response({ "success": True, "bid": bid.id, "redirect_url": checkout_session.url })
 
     except Deal.DoesNotExist:
 
         return Response({ "success": False }, status=404)
-    
+
+    except Exception as e:
+        print(str(e))
+
+
 # Request unclocking a bid
 @api_view(['POST'])
 @permission_classes([IsAuthenticated]) 

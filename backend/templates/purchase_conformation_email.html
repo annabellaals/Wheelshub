@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .email-wrapper {
+            width: 100%;
+            background-color: #f4f4f4;
+            padding: 20px 0;
+        }
+        .email-content {
+            width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+        }
+        .email-header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+        .email-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .email-body {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .email-body p {
+            margin: 10px 0;
+        }
+        .order-summary {
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .order-summary table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .order-summary th, .order-summary td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .order-summary th {
+            background-color: #f9f9f9;
+        }
+        .order-summary td {
+            font-size: 14px;
+        }
+        .email-footer {
+            margin-top: 30px;
+            font-size: 12px;
+            text-align: center;
+            color: #777;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <div class="email-content">
+            <!-- Email Header -->
+            <div class="email-header">
+                <h1>Thank You for Your Purchase!</h1>
+            </div>
+
+            <!-- Email Body -->
+            <div class="email-body">
+                <p>Dear {{ customer_name }},</p>
+                <p>Thank you for purchase! We're excited to let you know that your order has been successfully processed. Below are the details of your order:</p>
+
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <table>
+                        <tr>
+                            <th>Order Number</th>
+                            <td>{{ order_number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Date of Purchase</th>
+                            <td>{{ purchase_date }}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Amount</th>
+                            <td>${{ total_amount }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p>You will receive a separate email once your order has placed.</p>
+            </div>
+
+            <!-- Footer -->
+            <div class="email-footer">
+                <p>If you have any questions or concerns, feel free to contact us.</p>
+                <p>&copy; {{ current_year }} Your Store. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
