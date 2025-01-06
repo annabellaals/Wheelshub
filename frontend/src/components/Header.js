@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import { Sheet, Typography, IconButton, Box, Input, Button } from "@mui/joy";
+
+import Dropdown from '@mui/joy/Dropdown';
+import Menu from '@mui/joy/Menu';
+import MenuButton from '@mui/joy/MenuButton';
+import MenuItem from '@mui/joy/MenuItem';
+
 import { Person, Search, AddCircle } from "@mui/icons-material";
 import themes from "../themes";
 import { useNavigate, useLocation, Link } from "react-router-dom";
@@ -8,6 +14,18 @@ const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation(); // Get the current location
+
+  const [open, setOpen] = React.useState(false);
+  const token = localStorage.getItem("token");
+
+  const handleOpenChange = React.useCallback((event, isOpen) => {
+    setOpen(isOpen);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    navigate("/login");
+  }
 
   const toggleSearch = () => {
     setSearchOpen(!searchOpen);
@@ -54,7 +72,7 @@ const Header = () => {
         </Link>
       </Box>
 
-      <Box sx={{ display: "flex", alignItems: "center", gap: "6px" }}>
+      <Box sx={{ display: "flex", alignItems: "center", gap: "6px", width: "200px" }}>
         {location.pathname !== "/createListing" && (
           <Button
             variant="contained"
@@ -80,11 +98,23 @@ const Header = () => {
           </Button>
         )}
 
-        <IconButton onClick={() => navigate("/deals")} color="neutral" sx={{ fontSize: "1rem", borderRadius:"100px", border:"1px solid "+themes.colors.primary, padding: 0, marginLeft:"10px" }}>
+        {token == null ? <IconButton onClick={() => navigate("/deals")} color="neutral" sx={{ fontSize: "1rem", borderRadius: "100px", border: "1px solid " + themes.colors.primary, padding: 0, marginLeft: "10px" }}>
           {" "}
           {/* Set fontSize and padding here */}
           <Person sx={{ color: themes.colors.primary, fontSize: "20px" }} />
         </IconButton>
+          :
+          <Dropdown open={open} onOpenChange={handleOpenChange}>
+            <MenuButton color="neutral" sx={{ fontSize: "1rem", borderRadius: "100px", border: "1px solid " + themes.colors.primary, padding: 0, marginLeft: "10px", width: "19%" }}>
+              {" "}
+              <Person sx={{ color: themes.colors.primary, fontSize: "20px" }} />
+            </MenuButton>
+            <Menu>
+              <MenuItem onClick={() => navigate("/deals")}>Deals</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            </Menu>
+          </Dropdown>}
+
       </Box>
 
       {searchOpen && (
