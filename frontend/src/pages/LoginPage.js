@@ -80,6 +80,10 @@ const LoginPage = () => {
         // Store the token in localStorage
         localStorage.setItem("token", data.access); 
 
+
+        if (data.is_staff)
+          navigate("/admin");
+
         // Redirect to the previous page or homepage after login
         const redirectTo = location.state?.from || "/";
 
