@@ -42,6 +42,8 @@ urlpatterns = [
     # Auth routes
     path('auth/register/', views.register_user, name='register'),
     path('auth/login/', views.login_user, name='login'),
+    path('auth/admin/login/', views.admin_login_user, name='admin_login_user'),
+
     path('auth/user/', views.get_user, name='get_user'),
     
     # Default routes

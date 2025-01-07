@@ -27,6 +27,7 @@ import Privacy from "./pages/privacy";
 import Terms from "./pages/terms";
 import Newsletter from "./pages/newsletter";
 import Admin from "./pages/admin";
+import AdminLoginPage from "./pages/admin/AdminLoginPage";
 
 // Import PageWrapper to wrap main content on non-authentication pages
 import PageWrapper from "./components/PageWrapper"; 
@@ -38,7 +39,7 @@ const AppContent = () => {
   const location = useLocation(); 
 
   // Check if the current page is an authentication page (e.g., /signup or /login)
-  const isAuthPage = ["/signup", "/login"].includes(location.pathname);
+  const isAuthPage = ["/signup", "/login", "/admin/login"].includes(location.pathname);
 
   return <div>
 
@@ -57,6 +58,8 @@ const AppContent = () => {
 
             {/* Route for login page */}
             <Route path="/login" element={<LoginPage />} /> 
+            
+            <Route path="/admin/login" element={<AdminLoginPage />} /> 
 
             {/* Not matched throw 404 */}
             <Route path="*" element={<NotFound />} />

@@ -41,18 +41,30 @@ def login_user(request):
     user = authenticate(username=username, password=password)
 
     # If user exists
-    if user is not None:
+    if user is not None and user.is_active and not user.is_staff and not user.is_superuser:
 
         # Get a token for user, this will create a new session
         access = AccessToken.for_user(user)
 
-        return Response({ "success": True, "access": str(access), "is_staff": user.is_staff})
+        return Response({ "success": True, "access": str(access)})
 
     # Return 401   
     return Response({ "success": False }, status=401)
 
 
-# Profile
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def admin_login_user(request):
+    username = request.data.get('username')
+    password = request.data.get('password')
+    user = authenticate(username=username, password=password)
+    if user is not None and user.is_active and user.is_staff and user.is_superuser:
+        access = AccessToken.for_user(user)
+        return Response({"success": True, "access": str(access)})
+
+    return Response({"success": False}, status=401)
+
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated]) 
 def get_user(request):

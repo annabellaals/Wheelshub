@@ -8,7 +8,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 // Components
 import { Box, Button, Input, Typography, Link, Card, IconButton, Snackbar } from "@mui/joy"; 
-import theme from "../themes"; 
+import theme from "../../themes"; 
 import Visibility from "@mui/icons-material/Visibility"; 
 import VisibilityOff from "@mui/icons-material/VisibilityOff"; 
 
@@ -16,7 +16,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 const API_URL = process.env.REACT_APP_API_URL;
 
 // LoginPage component
-const LoginPage = () => {
+const AdminLoginPage = () => {
 
   // State variables for managing form data and UI states
   const [message, setMessage] = useState(""); 
@@ -62,7 +62,7 @@ const LoginPage = () => {
 
     try {
 
-      const response = await fetch(`${API_URL}/auth/login/`, {
+      const response = await fetch(`${API_URL}/auth/admin/login/`, {
 
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -76,19 +76,12 @@ const LoginPage = () => {
       const data = await response.json();
 
       if (response.ok) {
-
-        // Store the token in localStorage
         localStorage.setItem("token", data.access); 
-
-        const redirectTo = location.state?.from || "/";
-
+        const redirectTo = "/admin";
         navigate(redirectTo);
-
       } 
       else {
-
         alert("Login failed. Please check your credentials."); 
-
       }
 
     } 
@@ -129,9 +122,9 @@ const LoginPage = () => {
       {/* Login card container */}
       <Card sx={{ width: { xs: "100%", sm: 400 }, py: 3, px: { xs: 2, sm: 3 }, display: "flex", justifyContent: "center", borderRadius: "12px", border: "1px solid #E7E9EF" }}>
         
-        <Typography level="h2" mb={1} sx={{ color: theme.colors.primary, textAlign: "center", fontSize: { xs: "1.5rem", sm: "2rem" } }}>
+        <Typography level="h2" mb={1} sx={{ color: theme.colors.secondary, textAlign: "center", fontSize: { xs: "1.5rem", sm: "2rem" } }}>
           
-          WheelsHub
+          Admin Login
 
         </Typography>
 
@@ -145,7 +138,7 @@ const LoginPage = () => {
 
             type="text"
             size="lg"
-            placeholder="Enter username"
+            placeholder="Enter admin username"
             fullWidth
             variant="soft"
 
@@ -172,7 +165,7 @@ const LoginPage = () => {
 
             type={showPassword ? "text" : "password"}
             size="lg"
-            placeholder="Enter password"
+            placeholder="Enter admin password"
             fullWidth
             variant="soft"
             endDecorator={
@@ -216,10 +209,10 @@ const LoginPage = () => {
           />
 
           {/* Submit button for login */}
-          <Button type="submit" fullWidth variant="solid" sx={{ mb: 2, bgcolor: theme.colors.primary, borderRadius: "12px", py: 1.5, fontSize: "16px" }}>Sign In</Button>
-
-          {/* Link to the signup page */}
-          <Typography level="body3" textAlign="center">Don't have an account? <Link href="/signup" fontSize="sm" underline="hover" color="primary">Sign up now</Link></Typography>
+          <Button type="submit" fullWidth variant="solid" sx={{ mb: 2, bgcolor: theme.colors.primary, borderRadius: "12px", py: 1.5, fontSize: "16px" }}>Sign In to Admin </Button>
+          
+             {/* Link to the signup page */}
+             <Typography level="body3" textAlign="center">NOTE: Please contact support team if you forgot credentails.</Typography>
         
         </Box>
         
@@ -232,4 +225,4 @@ const LoginPage = () => {
 }
 
 // Export the LoginPage component as the default export
-export default LoginPage;
+export default AdminLoginPage;
