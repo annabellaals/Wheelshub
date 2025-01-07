@@ -1,4 +1,4 @@
-# WheelsHub
+# WheelsHub (v2)
 
 ![Home Page](/docs/screenshots/amiresponsive.png)
 
@@ -21,6 +21,22 @@ This separates us from the general space of marketplaces. I am creating a niche 
 ![GitHub last commit](https://img.shields.io/github/last-commit/annabellaals/Wheelshub) ![GitHub language count](https://img.shields.io/github/languages/count/annabellaals/Wheelshub) ![GitHub top language](https://img.shields.io/github/languages/top/annabellaals/Wheelshub)
 
 
+## v2 Updates
+
+Here are the updates made in v2:
+
+- **Email Integration**: Added email integration and sending of a confirmation email on successful purchases.
+- **Sensitive Information Removal**: Removed sensitive information from the code and turned off DEBUG mode.
+- **Commit Messages**: Commit messages are now more descriptive for better clarity and tracking.
+- **Testing Documentation**: Added testing documentation in the `TESTING.md` file for better understanding and setup.
+- **Logout Feature**: Implemented a logout feature to allow users to log out of the application.
+- **Secret Key Management**: Moved visible secret keys to the `.env` file for better security.
+
+#### New Features
+
+- **Deals CRUD Functionality**: Added CRUD functionality to the deals page. Users can now edit and remove deals.
+- **Role-Based Authentication**: Implemented role-based authentication for admin. Admin users can now log in via the `/admin/login` page.
+- 
 ## User Experience
 
 ### 1. Strategy Plane
