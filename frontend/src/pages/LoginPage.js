@@ -220,7 +220,9 @@ const LoginPage = () => {
 
           {/* Link to the signup page */}
           <Typography level="body3" textAlign="center">Don't have an account? <Link href="/signup" fontSize="sm" underline="hover" color="primary">Sign up now</Link></Typography>
-        
+            
+
+          <Typography level="body3" textAlign="center">Login to Admin? <Link href="/admin/login" fontSize="sm" underline="hover" color="primary">Click here</Link></Typography>
         </Box>
         
       </Card>
