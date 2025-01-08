@@ -61,13 +61,15 @@ def create_bid(request, deal_id):
             success_url = f"{ backend }/webhook/bids/{ bid.id }/activate/?session_id={{CHECKOUT_SESSION_ID}}",
             cancel_url = frontend,
         )
-
-        send_purchase_confirmation(
-            user_email=contact,
-            customer_name=request.user.username,
-            order_number=str(deal.id),
-            total_amount=amount
-        )
+        try:
+            send_purchase_confirmation(
+                user_email=contact,
+                customer_name=request.user.username,
+                order_number=str(deal.id),
+                total_amount=amount
+            )
+        except Exception as e:
+            print(e)
 
         # Return bid id
         return Response({ "success": True, "bid": bid.id, "redirect_url": checkout_session.url })

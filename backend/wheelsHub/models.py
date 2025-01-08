@@ -70,7 +70,7 @@ class Bid(models.Model):
 
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     message = models.TextField(blank=True, null=True)
-    contact = models.CharField(max_length=15, null=False)
+    contact = models.CharField(max_length=150, null=False)
 
     status = models.CharField(max_length=10, default='pending', choices=[
         ('pending', 'Pending'),
