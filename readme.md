@@ -14,7 +14,7 @@ This separates us from the general space of marketplaces. I am creating a niche 
 
 ---
 
-[Visit WheelsHub Here](https://wheelshub.ddns.net/)
+[Visit WheelsHub Here](https://wheels-hub-545f2858f1f2.herokuapp.com/)
 
 [Visit WheelsHub Repository](https://github.com/annabellaals/Wheelshub/)
 
@@ -36,7 +36,7 @@ Here are the updates made in v2:
 
 - **Deals CRUD Functionality**: Added CRUD functionality to the deals page. Users can now edit and remove deals.
 - **Role-Based Authentication**: Implemented role-based authentication for admin. Admin users can now log in via the `/admin/login` page.
-- 
+
 ## User Experience
 
 ### 1. Strategy Plane
