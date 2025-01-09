@@ -236,7 +236,7 @@ Wireframes for the WheelsHub project were created using [wireframe](https://wire
 
 #### * **Login Page** - The homepage features a header banner, Login. It provides the view to login
 
-  ![Login Page Wireframe](docs/wireframes/wf3.png)
+  ![Login Page Wireframe](docs/wireframes/wf9.png)
 
 ---
 
