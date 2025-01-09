@@ -30,6 +30,7 @@ Here are the updates made in v2:
 - **Commit Messages**: Commit messages are now more descriptive for better clarity and tracking.
 - **Testing Documentation**: Added testing documentation in the `TESTING.md` file for better understanding and setup.
 - **Logout Feature**: Implemented a logout feature to allow users to log out of the application.
+- **User Bid Page**: User can now access bid page through profile.
 - **Secret Key Management**: Moved visible secret keys to the `.env` file for better security.
 
 #### New Features
@@ -944,7 +945,7 @@ Our admin interface is accessible at `/admin` for administrative management.
 Admin credentials for testing:
 | Username | Password |
 | --- | --- |
-| wheelshubadmin | wheelshub179 |
+| whadmin | whpass |
 
 The admin interface provides functionality to manage user support queries. And we will expand this in the future to manage more aspects of the application.
 
