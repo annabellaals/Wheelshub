@@ -938,9 +938,9 @@ Stripe for the website is currently in developer mode, which allows us to be abl
 | Declined | 4000 0000 0000 0002 | A date in the future | Any 3 digits | Any 5 digits |
 
 
-### **Django Admin Access**
+### **Admin Access**
 
-Our admin interface is accessible at `/admin` for administrative management. 
+Our admin interface is accessible at `/admin`. 
 
 Admin credentials for testing:
 | Username | Password |
