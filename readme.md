@@ -253,6 +253,30 @@ Wireframes for the WheelsHub project were created using [wireframe](https://wire
 
 ---
 
+#### * **Create AD Page** 
+
+  ![Deals list Wireframe](docs/wireframes/wf12.png)
+
+---
+
+#### * **Bids Page** 
+
+  ![Deals list Wireframe](docs/wireframes/wf13.png)
+
+---
+
+#### * **Contact** 
+
+  ![Deals list Wireframe](docs/wireframes/wf14.png)
+
+---
+
+#### * **Car Page** 
+
+  ![Deals list Wireframe](docs/wireframes/wf15.png)
+
+---
+
 #### * **Facebook Mock-up (Facebook deactivated account)** 
 
   ![Facebook](docs/wireframes/wf6.png)
