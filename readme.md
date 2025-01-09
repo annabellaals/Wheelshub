@@ -226,7 +226,7 @@ Wireframes for the WheelsHub project were created using [wireframe](https://wire
 
 * **Base Template** - This template contains the header and footer, which are used throughout the website. The base template is used as a foundation, with specific page content injected into the main section using React language.
 
-![Base Template Wireframe](docs/wireframes/wf1.png)
+![Base Template Wireframe](docs/wireframes/wf7.png)
 
 --- 
 
