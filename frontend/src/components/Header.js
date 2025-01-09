@@ -110,6 +110,7 @@ const Header = () => {
               <Person sx={{ color: themes.colors.primary, fontSize: "20px" }} />
             </MenuButton>
             <Menu>
+            <MenuItem onClick={() => navigate("/bids")}>Bids</MenuItem>
               <MenuItem onClick={() => navigate("/deals")}>Deals</MenuItem>
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
