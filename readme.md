@@ -228,13 +228,13 @@ Wireframes for the WheelsHub project were created using [Balsamiq](https://balsa
 
 * **Base Template** - This template contains the header and footer, which are used throughout the website. The base template is used as a foundation, with specific page content injected into the main section using React language.
 
-![Base Template Wireframe](docs/wireframes/wf7.png)
+![Base Template Wireframe](docs/wireframes/wf16.png)
 
 --- 
 
 #### * **Home Page**
 
-  ![Home page Wireframe](docs/wireframes/wf8.png)
+  ![Home page Wireframe](docs/wireframes/wf17.png)
 
 #### * **Login Page** - The homepage features a header banner, Login. It provides the view to login
 
@@ -275,7 +275,7 @@ Wireframes for the WheelsHub project were created using [Balsamiq](https://balsa
 
 #### * **Car Page** 
 
-  ![Deals list Wireframe](docs/wireframes/wf15.png)
+  ![Deals list Wireframe](docs/wireframes/wf18.png)
 
 ---
 
