@@ -251,6 +251,12 @@ Wireframes for the WheelsHub project were created using [wireframe](https://wire
 
   ![Deals list Wireframe](docs/wireframes/wf5.png)
 
+---
+
+#### * **Facebook Mock-up (Facebook deactivated account)** 
+
+  ![Facebook](docs/wireframes/wf6.png)
+
 
 
 ## Mockups
