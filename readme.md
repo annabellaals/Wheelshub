@@ -35,7 +35,9 @@ Here are the updates made in v2:
 #### New Features
 
 - **Deals CRUD Functionality**: Added CRUD functionality to the deals page. Users can now edit and remove deals.
-- **Role-Based Authentication**: Implemented role-based authentication for admin. Admin users can now log in via the `/admin/login` page.
+  (/docs/screenshots/dealsfunctions.png)
+- **Role-Based Authentication**: Implemented role-based authentication for admin. Admin users can now log in via the `/admin/login` page, or by clicking on the admin option in login page.
+(/docs/screenshots/adminloginfeature.png)
 
 ## User Experience
 
