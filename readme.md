@@ -232,56 +232,52 @@ Wireframes for the WheelsHub project were created using [Balsamiq](https://balsa
 
 --- 
 
-#### * **Home Page**
+#### **Home Page**
 
   ![Home page Wireframe](docs/wireframes/wf17.png)
 
-#### * **Login Page** - The homepage features a header banner, Login. It provides the view to login
+#### **Login Page** - The homepage features a header banner, Login. It provides the view to login
 
   ![Login Page Wireframe](docs/wireframes/wf9.png)
 
 ---
 
-#### * **Register Page**
+#### **Register Page**
 
   ![Register Page Wireframe](docs/wireframes/wf10.png)
 
 
 ---
 
-#### * **Deals list Page** 
+#### **Deals list Page** 
 
   ![Deals list Wireframe](docs/wireframes/wf11.png)
 
 ---
 
-#### * **Create AD Page** 
+#### **Create AD Page** 
 
   ![Deals list Wireframe](docs/wireframes/wf12.png)
 
 ---
 
-#### * **Bids Page** 
+#### **Bids Page** 
 
   ![Deals list Wireframe](docs/wireframes/wf13.png)
 
 ---
 
-#### * **Contact** 
+#### **Contact** 
 
   ![Deals list Wireframe](docs/wireframes/wf14.png)
 
 ---
 
-#### * **Car Page** 
+#### **Car Page** 
 
   ![Deals list Wireframe](docs/wireframes/wf18.png)
 
 ---
-
-#### * **Facebook Mock-up (Facebook deactivated account)** 
-
-  ![Facebook](docs/wireframes/wf6.png)
 
 
 
@@ -391,6 +387,10 @@ The signup and login pages provide a streamlined authentication experience. The 
 The 404 page appears when users attempt to access non-existent pages. It features a friendly message explaining the error and provides helpful navigation options to guide users back to active pages. The page maintains our brand identity while making the error experience less frustrating for users.
 
 ![404](/docs/screenshots/404.png)
+
+#### **Facebook Mock-up (Facebook deactivated account)** 
+
+  ![Facebook](docs/wireframes/wf6.png)
 
 
 ## Technology Stack
