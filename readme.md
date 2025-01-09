@@ -944,7 +944,7 @@ Our admin interface is accessible at `/admin` for administrative management.
 Admin credentials for testing:
 | Username | Password |
 | --- | --- |
-| testuser | testpass |
+| wheelshubadmin | wheelshub179 |
 
 The admin interface provides functionality to manage user support queries. And we will expand this in the future to manage more aspects of the application.
 
