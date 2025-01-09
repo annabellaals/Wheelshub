@@ -249,7 +249,7 @@ Wireframes for the WheelsHub project were created using [wireframe](https://wire
 
 #### * **Deals list Page** 
 
-  ![Deals list Wireframe](docs/wireframes/wf5.png)
+  ![Deals list Wireframe](docs/wireframes/wf11.png)
 
 ---
 
