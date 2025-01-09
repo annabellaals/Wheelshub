@@ -223,7 +223,7 @@ Infrastructure | Set up Git repository and project structure | High | 2 | None |
 
 ### **Wireframes**
 
-Wireframes for the WheelsHub project were created using [wireframe](https://wireframe.cc/).
+Wireframes for the WheelsHub project were created using [Balsamiq](https://balsamiq.com/).
 
 
 * **Base Template** - This template contains the header and footer, which are used throughout the website. The base template is used as a foundation, with specific page content injected into the main section using React language.
